@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Responsive Website</title>
+
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Grid Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            height: 100vh;
+        }
+
+        /* Header */
+        header {
+            grid-area: header;
+            background: linear-gradient(45deg, #f100f0, #00c6ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Sidebar */
+        aside {
+            grid-area: sidebar;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+        }
+
+        /* Main Content */
+        main {
+            grid-area: main;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Footer */
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Sidebar links */
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        aside ul li:hover {
+            background-color: pink;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Card inside main */
+        .card {
+            background-color: thistle;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideIn {
+            from {transform: translateX(-100px); opacity: 0;}
+            to {transform: translateX(0); opacity: 1;}
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>My Modern Website</h1>
+        </header>
+
+        <aside>
+            <h2>Menu</h2>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="card">
+                <h2>Welcome!</h2>
+                <p>This is a modern responsive webpage with animations and clean design.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 My Website</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
