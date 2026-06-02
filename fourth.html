@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Quiz App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f6ebf5;
+            display: flex;
+            justify-content: center;
+            align-items: first baseline;
+            height: 100vh;
+        }
+
+        .quiz-box {
+            background: honeydew;
+            padding: 300px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #c8b9fe;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+    <h2 id="question">Question here</h2>
+
+    <div id="options"></div>
+
+    <button onclick="nextQuestion()">Next</button>
+</div>
+
+<script>
+    const quiz = [
+        {
+            question: "What is HTML?",
+            options: ["Programming Language", "Markup Language", "Database", "Operating System"],
+            answer: "Markup Language"
+        },
+        {
+            question: "What is CSS used for?",
+            options: ["Structure", "Styling", "Database", "Logic"],
+            answer: "Styling"
+        },
+        {
+            question: "What does JS stand for?",
+            options: ["Java Source", "Java Script", "JSON", "Java System"],
+            answer: "Java Script"
+        }
+    ];
+
+    let index = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        document.getElementById("question").innerText = quiz[index].question;
+
+        let optionsHTML = "";
+        quiz[index].options.forEach(opt => {
+            optionsHTML += `<label>
+                <input type="radio" name="option" value="${opt}"> ${opt}
+            </label><br>`;
+        });
+
+        document.getElementById("options").innerHTML = optionsHTML;
+    }
+
+    function nextQuestion() {
+        let selected = document.querySelector('input[name="option"]:checked');
+
+        // Validation
+        if (!selected) {
+            alert("Please select an answer!");
+            return;
+        }
+
+        if (selected.value === quiz[index].answer) {
+            score++;
+        }
+
+        index++;
+
+        if (index < quiz.length) {
+            loadQuestion();
+        } else {
+            document.querySelector(".quiz-box").innerHTML =
+                `<h2>Your Score: ${score}/${quiz.length}</h2>`;
+        }
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>
