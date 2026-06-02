@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <style>
+        
+        body {
+            background-color: beige;
+            font-family: Arial,sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: white;
+            width: 250px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10ox rgba(0,0,0,0.2);
+            text-align:center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card h2{
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .price {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius:5 px;
+            cursor: pointer;
+            margin-top:10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.toSRlagAm5hZjUyROCoK2wHaFo?pid=Api&P=0&h=220" alt="Product Image">
+
+        <h2>Lipstick Shade</h2>
+        <p class="price">$50.00</p>
+        <button class="btn">Add to card</button>
+    </div>
+    
+</body>
+</html>
